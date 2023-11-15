@@ -1,4 +1,4 @@
-import { View, Text, Image, ScrollView, Button } from "react-native";
+import { View, Text, Image, ScrollView, Button, Pressable } from "react-native";
 const logoImg = require("./assets/adaptive-icon.png");
 
 export default function App() {
@@ -9,6 +9,13 @@ export default function App() {
         onPress={() => alert("Hello World")}
         color="orange"
       />
+      <Pressable
+        onPress={() => {
+          alert("Pressed!");
+        }}
+      >
+        <Image source={logoImg} style={{ width: 300, height: 300 }} />
+      </Pressable>
     </View>
   );
 }
