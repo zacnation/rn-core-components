@@ -8,33 +8,21 @@ import {
   Button,
   Pressable,
   Modal,
+  StatusBar,
 } from "react-native";
 
 const logoImg = require("./assets/adaptive-icon.png");
 
 export default function App() {
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isStatusBarHidden, setIsStatusBarHidden] = useState(false);
   return (
     <View style={{ flex: 1, backgroundColor: "teal", padding: 60 }}>
+      <StatusBar barStyle="light-content" hidden={isStatusBarHidden} />
       <Button
-        title="Click me"
+        title="Toggle Status Bar"
         color="orange"
-        onPress={() => setIsModalVisible(true)}
+        onPress={() => setIsStatusBarHidden(!isStatusBarHidden)}
       />
-      <Modal
-        visible={isModalVisible}
-        onRequestClose={() => setIsModalVisible(false)}
-        animationType="slide"
-        presentationStyle="pageSheet"
-      >
-        <View style={{ flex: 1, backgroundColor: "hotpink", padding: 60 }}>
-          <Button
-            title="Close"
-            color="orange"
-            onPress={() => setIsModalVisible(false)}
-          />
-        </View>
-      </Modal>
     </View>
   );
 }
