@@ -13,6 +13,8 @@ import {
   Alert,
 } from "react-native";
 
+import Greet from "./components/Greet";
+
 const logoImg = require("./assets/adaptive-icon.png");
 
 export default function App() {
@@ -20,16 +22,7 @@ export default function App() {
   const [count, setCount] = useState(0);
   return (
     <View style={{ flex: 1, backgroundColor: "teal", padding: 60 }}>
-      <Button
-        title="Alert"
-        onPress={() =>
-          Alert.alert("Error", "Please try again", [
-            { text: "Cancel", onPress: () => console.log("Cancel Pressed") },
-            { text: "OK", onPress: () => console.log("OK Pressed") },
-          ])
-        }
-        color="orange"
-      />
+      <Greet name="Zac" />
     </View>
   );
 }
