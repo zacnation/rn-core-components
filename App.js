@@ -10,6 +10,7 @@ import {
   Modal,
   StatusBar,
   ActivityIndicator,
+  Alert,
 } from "react-native";
 
 const logoImg = require("./assets/adaptive-icon.png");
@@ -19,23 +20,16 @@ export default function App() {
   const [count, setCount] = useState(0);
   return (
     <View style={{ flex: 1, backgroundColor: "teal", padding: 60 }}>
-      <ActivityIndicator
-        size="large"
-        style={{ paddingTop: 100, paddingBottom: 20 }}
-        animating={isLoadingVisible}
-      />
       <Button
-        title="Toggle Loading Icon"
+        title="Alert"
+        onPress={() =>
+          Alert.alert("Error", "Please try again", [
+            { text: "Cancel", onPress: () => console.log("Cancel Pressed") },
+            { text: "OK", onPress: () => console.log("OK Pressed") },
+          ])
+        }
         color="orange"
-        onPress={() => setIsLoadingVisible(!isLoadingVisible)}
       />
-      <Button title="Add" color="hotpink" onPress={() => setCount(count + 1)} />
-      <Button
-        title="Subtract"
-        color="hotpink"
-        onPress={() => setCount(count - 1)}
-      />
-      <Text style={{ fontSize: 30 }}>{count}</Text>
     </View>
   );
 }
